@@ -4,17 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="./IMG/LOGO - IPPV@3x.webp" type="image/x-icon"> <!-- Adiciona um favicon -->
     <script src="script.js" defer></script>
-    <title>Sorteador de Numeros</title>
+    <title>Sorteador de Números</title>
 </head>
 <body>
-    <button id="drawButton" onclick="startDraw()">Sortear Número</button>
-    <div  id="container" class="container">
-      <p id="countdown"></p>
-      <p id="textdown">O número sorteado é </p>
-      <p id="result"></p>
-      <button id="pageatualization" class="pageatualization" onclick="atualizarPagina()">Atualizar página</button>
+    <button id="drawButton" onclick="startDraw()">Começar</button>
+    <p id="initcountdown" class="initcountdown">Clique em começar para sortearmos um número!</p>
+    <div id="container" class="container">
+        <p id="countdown"></p>
+        <p id="textdown">O número sorteado é </p>
+        <div id="loading-container" class="loading-container">
+            <div id="loading" class="loading"></div>
+        </div>
+        <p id="result"></p>
+        <button id="pageatualization" class="pageatualization" onclick="atualizarPagina()">Atualizar página</button>
     </div>
- 
 </body>
 </html>
