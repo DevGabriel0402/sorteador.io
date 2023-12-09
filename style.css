@@ -1,112 +1,163 @@
 body {
-    font-family: "Arial", sans-serif;
-    background-color: #3498db; /* Azul */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    margin: 0;
-    overflow: hidden;
-
-  }
-  
-  /*h1{
-    color: white;
-  }*/
-  
-  .container {
-    display: none;
-    text-align: center;
-    /*background-color: #fff;*/
-    padding: 20px;
-    /*border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);*/
-    position: relative;
-  }
-  
-  #drawButton {
-    font-size: 48px;
-  }
-  
-  button {
-    width: 440px;
-    height: 80px;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    background-color: #fff; /* Verde */
-    color: #3498db;
-    border: none;
-    border-radius: 50px;
-    transition: transform 0.3s ease;
-  }
-  
-  button:hover {
-    transform: scale(1.05);
-    background-color: #255a7e; 
-    color: #fff;
-    border: 1px solid #fff;
-  }
-  
-  #countdown {
-    font-size: 460px;
-    color: white;
-    font-weight: bold;
-  }
-
-  #textdown{
-    display: none;
-    font-size: 56px;
-    font-weight: bold;
-    color: white;
-  }
-  
-  #result {
-    font-size: 220px;
-    margin-top: 20px;
-    color: white;
-    font-weight: bold;
-  }
-  
-  .pageatualization{
-   
-    width: 250px;
-    height: auto;
-    margin-top: -50px;
-    background-color: transparent;
-    border: 1px solid #fff;
-    color: #fff;
-    font-size: 20px;
-    opacity: 0;
-        &:hover{
-            background-color: #fff;
-            color: #3498db;
-
-    }
-        
-  }
-
-
-    /* responsividade */
-@media (min-width: 320px) and (max-width:767px){
-    button{
-        width: 300px;
-        font-size: 12px;
-    }
-    #drawButton{
-        font-size: 28px;
-
-    }
-    #countdown, #result{
-        font-size: 160px;
-    }
-
-    .pageatualization{
-        font-size: 16px;
-
-    }
-
+  font-family: "Arial", sans-serif;
+  background-color: #3498db; /* Azul */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
 }
 
-  
+.initcountdown {
+  display: none;
+  margin-top: 30px;
+  font-size: 25px;
+  color: white;
+}
+
+.container {
+  display: none;
+  text-align: center;
+  padding: 20px;
+  position: relative;
+}
+
+#drawButton {
+  font-size: 48px;
+}
+
+button {
+  width: 440px;
+  height: 80px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #fff; /* Verde */
+  color: #3498db;
+  border: none;
+  border-radius: 50px;
+  transition: transform 0.3s ease;
+}
+
+button:hover {
+  transform: scale(1.05);
+  background-color: #255a7e;
+  color: #fff;
+  box-shadow: 2px 5px 15px rgba(0, 0, 0, 0.336);
+}
+
+#countdown {
+  font-size: 460px;
+  color: white;
+  font-weight: bold;
+  animation: scaleAnimation 1s ease;
+}
+
+#textdown {
+  display: none;
+  font-size: 56px;
+  font-weight: bold;
+  color: white;
+}
+
+#result {
+  font-size: 220px;
+  margin-top: 20px;
+  color: white;
+  font-weight: bold;
+}
+
+.pageatualization {
+  width: 250px;
+  height: auto;
+  background-color: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+  font-size: 20px;
+  transform: translatey(150px);
+  opacity: 0;
+  box-shadow: 1px 0 5px #fff;
+
+  &:hover {
+      background-color: #fff;
+      color: #3498db;
+      box-shadow: 1px 0 5px #fff;
+  }
+}
+
+.loading-container {
+  margin-top: 50px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.loading {
+  display: none;
+  width: 160px;
+  height: 160px;
+  box-sizing: border-box;
+  border-radius: 50%;
+  border: 8px solid transparent;
+  border-top: 8px solid #000a11;
+  box-shadow: 2px 0 5px #fff;
+  animation: spin 1s linear infinite, changeColor 3s ease-in-out infinite;
+}
+
+@keyframes scaleAnimation {
+  0% {
+      transform: scale(0);
+  }
+  100% {
+      transform: scale(1);
+  }
+}
+
+@keyframes spin {
+  to {
+      transform: rotate(360deg);
+  }
+}
+
+@keyframes changeColor {
+  0%, 100% {
+      border-top: 8px solid transparent;
+  }
+  25% {
+      border-top: 8px solid transparent;
+  }
+  50% {
+      border-top: 8px solid transparent;
+  }
+  75% {
+      border-top: 8px solid transparent;
+  }
+}
+
+/* responsividade */
+@media (min-width: 320px) and (max-width:767px) {
+  button {
+      width: 300px;
+      font-size: 12px;
+  }
+  #drawButton, #textdown {
+      font-size: 28px;
+  }
+
+  .loading-container{
+    margin-top: 60px;
+  }
+  #countdown, #result {
+      font-size: 120px;
+      
+  }
+
+  .pageatualization, .initcountdown {
+      font-size: 16px;
+      margin: 15px 25px;
+      text-align: center;
+  }
+}
