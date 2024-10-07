@@ -38,7 +38,7 @@ function startDraw() {
 // Função para realizar o sorteio
 function drawNumber() {
   // Gera um número aleatório de 1 a 1000
-  const randomNumber = Math.floor(Math.random() * 200) + 1;
+  const randomNumber = Math.floor(Math.random() * 400) + 1;
 
   // Exibe o resultado
   textElement.style.display = "block";
